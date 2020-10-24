@@ -13,7 +13,7 @@ class App {
         }
 }
 
-fun main(args: Array<String>) {
+fun runIntroduction() {
     println(App().greeting)
     println(start())
     println(listOf("a", "b", "c"))
@@ -51,4 +51,57 @@ fun main(args: Array<String>) {
     println(sortList(listOf(3, 1, 2)))
     println(sortListSAM(listOf(3, 1, 2)))
     println(sortListExtensionsCollections(listOf(1, 3, 2)))
+}
+
+fun runConventions() {
+    println("2020-10-30 > 2019-11.30 ${compare(MyDate(2020, 10, 30), MyDate(2019, 11, 30))}")
+    println("2020-10-30 > 2020-11.30 ${compare(MyDate(2020, 10, 30), MyDate(2020, 11, 30))}")
+
+    println("2020-10-30 ${
+        if (checkRange(
+            MyDate(2020, 10, 30),
+            MyDate(2020, 9, 30),
+            MyDate(2020, 11, 30)
+        )) "in" else "not in" } 2020-9-30 - 2020-11.30 ")
+
+    println("2020-12-30 ${
+        if (checkRange(
+            MyDate(2020, 12, 30),
+            MyDate(2020, 9, 30),
+            MyDate(2020, 11, 30)
+        )) "in" else "not in" } 2020-9-30 - 2020-11.30 ")
+
+    println("2020-10-30 ${
+        if (checkInRange(
+            MyDate(2020, 10, 30),
+            MyDate(2020, 9, 30),
+            MyDate(2020, 11, 30)
+        )) "in" else "not in" } 2020-9-30 - 2020-11.30 ")
+
+    println("2020-12-30 ${
+        if (checkInRange(
+            MyDate(2020, 12, 30),
+            MyDate(2020, 9, 30),
+            MyDate(2020, 11, 30)
+        )) "in" else "not in" } 2020-9-30 - 2020-11.30 ")
+
+    iterateOverDateRange(
+            MyDate(2020, 9, 28),
+            MyDate(2020, 9, 30),
+            { println(it) }
+    )
+
+    println(task1(MyDate(2020, 10, 21)))
+    println(task2(MyDate(2020, 10, 21)))
+    println(isLeapDay(MyDate(2020, 10, 21)))
+    println(isLeapDay(MyDate(2020, 2, 29)))
+
+    var invokable = Invokable()
+    invokeThrice(invokable)
+    println(invokable.numbersOfInvocations)
+}
+
+fun main(args: Array<String>) {
+    //runIntroduction()
+    runConventions()
 }

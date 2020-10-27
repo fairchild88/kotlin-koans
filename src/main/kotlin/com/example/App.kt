@@ -101,7 +101,26 @@ fun runConventions() {
     println(invokable.numbersOfInvocations)
 }
 
+fun runCollections() {
+    println(shop.getSetOfCustomers())
+    println(shop.getCitiesCustomersAreFrom())
+    println(shop.getCustomersFrom(Canberra))
+    println(shop.checkAllCustomersAreFrom(Canberra))
+    println(shopAtCanberra.checkAllCustomersAreFrom(Canberra))
+
+    println("shopAtCanberra.hasCustomerFrom(Canberra) ${shopAtCanberra.hasCustomerFrom(Canberra)}")
+    println("shopAtCanberra.hasCustomerFrom(Tokyo) ${shopAtCanberra.hasCustomerFrom(Tokyo)}")
+
+    println("shop.countCustomersFrom(Tokyo) ${shop.countCustomersFrom(Tokyo)}")
+    println("shop.countCustomersFrom(Canberra) ${shop.countCustomersFrom(Canberra)}")
+
+    println("shop.findAnyCustomerFrom(Tokyo) ${shop.findAnyCustomerFrom(Tokyo)}")
+    println("shopAtCanberra.findAnyCustomerFrom(Tokyo) ${shopAtCanberra.findAnyCustomerFrom(Tokyo)}")
+
+}
+
 fun main(args: Array<String>) {
     //runIntroduction()
-    runConventions()
+    //runConventions()
+    runCollections()
 }

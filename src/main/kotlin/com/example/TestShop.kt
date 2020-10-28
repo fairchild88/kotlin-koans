@@ -61,6 +61,13 @@ val shop = shop("jb test shop",
 
 )
 
+val customerWith3Orders = customer(
+    reka, Budapest,
+    order(idea, isDelivered = false),
+    order(idea, isDelivered = false),
+    order(idea)
+)
+
 val shopAtCanberra = shop("jb test shop",
         customer(lucas, Canberra,
                 order(reSharper),

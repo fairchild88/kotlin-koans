@@ -18,10 +18,10 @@ fun Shop.findAnyCustomerFrom(city: City): Customer? = customers.find{ it.city ==
 
 //FlatMap
 val Customer.orderedProducts: Set<Product> get() {
-    TODO()
+    return orders.flatMap{ it.products }.toSet()
 }
 
 val Shop.allOrderedProducts: Set<Product> get() {
-    TODO()
+    return customers.flatMap{ it.orderedProducts.toList() }.toSet()
 }
 

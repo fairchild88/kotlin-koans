@@ -117,6 +117,8 @@ fun runCollections() {
     println("shop.findAnyCustomerFrom(Tokyo) ${shop.findAnyCustomerFrom(Tokyo)}")
     println("shopAtCanberra.findAnyCustomerFrom(Tokyo) ${shopAtCanberra.findAnyCustomerFrom(Tokyo)}")
 
+    println("customerWith3Orders.orderedProducts ${customerWith3Orders.orderedProducts}")
+    println("shopAtCanberra.allOrderedProducts ${shopAtCanberra.allOrderedProducts}")
 }
 
 fun main(args: Array<String>) {

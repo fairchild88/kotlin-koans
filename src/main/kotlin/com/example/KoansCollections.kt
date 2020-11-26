@@ -25,3 +25,22 @@ val Shop.allOrderedProducts: Set<Product> get() {
     return customers.flatMap{ it.orderedProducts.toList() }.toSet()
 }
 
+//Max min
+fun Shop.getCustomerWithMaximumNumberOfOrders(): Customer? = customers.maxBy{ it.orders.size }
+
+fun Shop.getMostExpensiveOrderedProduct(): Product? = allOrderedProducts.maxBy{ it.price }
+
+//Sort
+fun Shop.getCustomersSortedByNumberOfOrders(): List<Customer> = customers.sortedBy{ it.orders.size }
+
+//Sum
+fun Shop.getTotalOrderPrice(): Double = orderedProducts.sumByDouble{ it.price }
+
+//Group by
+fun Shop.groupCustomersByCity(): Map<City, List<Customer>> = customers.groupBy{ it.city }
+
+//Partition
+fun Shop.getCustomersWithMoreUndeliveredThenDelivered():Set<Customer> = customers.filter{ 
+		(undelivered, delieverd) = it.orders.partition{ it.isDelivered} 
+		delieverd.size > undelivered.size 
+}

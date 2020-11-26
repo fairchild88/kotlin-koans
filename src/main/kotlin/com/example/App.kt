@@ -119,6 +119,12 @@ fun runCollections() {
 
     println("customerWith3Orders.orderedProducts ${customerWith3Orders.orderedProducts}")
     println("shopAtCanberra.allOrderedProducts ${shopAtCanberra.allOrderedProducts}")
+
+    println(shop.getCustomerWithMaximumNumberOfOrders())
+    println(shop.getMostExpensiveOrderedProduct())
+    println(shop.getCustomersSortedByNumberOfOrders())
+    println(shop.getTotalOrderPrice())
+    println(shop.groupCustomersByCity())
 }
 
 fun main(args: Array<String>) {

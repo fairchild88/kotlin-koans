@@ -40,7 +40,7 @@ fun Shop.getTotalOrderPrice(): Double = orderedProducts.sumByDouble{ it.price }
 fun Shop.groupCustomersByCity(): Map<City, List<Customer>> = customers.groupBy{ it.city }
 
 //Partition
-fun Shop.getCustomersWithMoreUndeliveredThenDelivered():Set<Customer> = customers.filter{ 
-		(undelivered, delieverd) = it.orders.partition{ it.isDelivered} 
-		delieverd.size > undelivered.size 
-}
+fun Shop.getCustomersWithMoreUndeliveredThenDelivered():Set<Customer> = customers.partition {
+		val (deliveredOrders, undeliveredOrders) = it.orders.partition { it.isDelivered }
+    deliveredOrders.size < undeliveredOrders.size
+}.first.toSet()

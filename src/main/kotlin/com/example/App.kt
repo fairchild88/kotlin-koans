@@ -125,6 +125,8 @@ fun runCollections() {
     println(shop.getCustomersSortedByNumberOfOrders())
     println(shop.getTotalOrderPrice())
     println(shop.groupCustomersByCity())
+
+    println(shop.getCustomersWithMoreUndeliveredThenDelivered())
 }
 
 fun main(args: Array<String>) {

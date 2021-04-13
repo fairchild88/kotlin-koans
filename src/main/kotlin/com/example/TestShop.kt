@@ -68,6 +68,10 @@ val customerWith3Orders = customer(
     order(idea)
 )
 
+val customerWithNoOrders = customer(
+    reka, Budapest
+)
+
 val shopAtCanberra = shop("jb test shop",
         customer(lucas, Canberra,
                 order(reSharper),

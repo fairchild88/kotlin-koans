@@ -44,3 +44,38 @@ fun Shop.getCustomersWithMoreUndeliveredThenDelivered():Set<Customer> = customer
 		val (deliveredOrders, undeliveredOrders) = it.orders.partition { it.isDelivered }
     deliveredOrders.size < undeliveredOrders.size
 }.first.toSet()
+
+//Fold set of product ordered by all customer
+fun Shop.getSetOfProductsOrderedByAllCustomer(): Set<Product> = customers.fold(HashSet()) { products, element ->
+		products.addAll(element.orderedProducts)
+    products
+}
+
+fun Customer.getOrderedProducts(): List<Product> = orders.fold(ArrayList()) { products, element ->
+    products.addAll(element.products)
+    products
+}
+
+//Compound Task
+// Only Delivery
+fun findMostExpensiveProductBy(customer: Customer): Product? {
+    //不能正确推导类型
+    val deliveredProducts:List<Product> = customer.orders.filter {it.isDelivered}.fold(ArrayList()) { products, element ->
+        products.addAll(element.products)
+        products}
+    return if (deliveredProducts.isEmpty()) null else
+    deliveredProducts.reduce{ product, element ->
+        if ( element.price > product.price ) element else product
+    }
+}
+
+fun Shop.getNumbersOfTimesProductWasOrdered(product: Product): Int {
+    //不能正确推导类型
+    val products: List<Product> = customers.fold(ArrayList()) { products, element ->
+        products.addAll(element.getOrderedProducts())
+        products
+    }
+
+    return products.fold(0) {count, element ->
+        if (element.name.equals(product.name)) count + 1 else count }
+}

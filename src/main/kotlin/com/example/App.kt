@@ -127,6 +127,17 @@ fun runCollections() {
     println(shop.groupCustomersByCity())
 
     println(shop.getCustomersWithMoreUndeliveredThenDelivered())
+
+    println(shop.getSetOfProductsOrderedByAllCustomer())
+    println(customerWith3Orders.getOrderedProducts())
+    println(customerWithNoOrders.getOrderedProducts())
+
+    println(findMostExpensiveProductBy(customerWith3Orders))
+    println(findMostExpensiveProductBy(customerWithNoOrders))
+
+    println(shop.getNumbersOfTimesProductWasOrdered(idea))
+    println(shop.getNumbersOfTimesProductWasOrdered(reSharper))
+
 }
 
 fun main(args: Array<String>) {

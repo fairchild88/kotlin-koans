@@ -98,3 +98,12 @@ fun Shop.getNumbersOfTimesProductWasOrdered2(product:Product): Int {
     return productsSequence.fold(0) {count, element ->
         if (element.name.equals(product.name)) count + 1 else count }
 }
+
+//new style
+fun doSomethingWithCollection(collection: Collection<String>): Collection<String>? {
+    val groupsByLen = collection.groupBy{ s -> s.length }
+    println(groupsByLen)
+    val maxSizeOfGroup = groupsByLen.values.map{ group -> group.size}.max()
+    println(maxSizeOfGroup)
+    return groupsByLen.values.firstOrNull{ group -> group.size == maxSizeOfGroup}
+}

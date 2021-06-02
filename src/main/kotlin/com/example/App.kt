@@ -143,6 +143,8 @@ fun runCollections() {
 
     println(shop.getNumbersOfTimesProductWasOrdered2(idea))
     println(shop.getNumbersOfTimesProductWasOrdered2(reSharper))
+
+    println(doSomethingWithCollection(listOf("a", "bc", "def", "e")))
 }
 
 fun main(args: Array<String>) {

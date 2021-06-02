@@ -57,6 +57,7 @@ fun Customer.getOrderedProducts(): List<Product> = orders.fold(ArrayList()) { pr
 }
 
 //Compound Task
+
 // Only Delivery
 fun findMostExpensiveProductBy(customer: Customer): Product? {
     //不能正确推导类型
@@ -77,5 +78,23 @@ fun Shop.getNumbersOfTimesProductWasOrdered(product: Product): Int {
     }
 
     return products.fold(0) {count, element ->
+        if (element.name.equals(product.name)) count + 1 else count }
+}
+
+//Sequences
+fun findMostExpensiveProductBy2(customer: Customer): Product? {
+    val products = customer.getOrderedProducts().asSequence()
+    return products.maxBy{it.price}
+}
+
+fun Shop.getNumbersOfTimesProductWasOrdered2(product:Product): Int {
+    val products: List<Product> = customers.fold(ArrayList()) { products, element ->
+        products.addAll(element.getOrderedProducts())
+        products
+    }
+
+    val productsSequence = products.asSequence()
+
+    return productsSequence.fold(0) {count, element ->
         if (element.name.equals(product.name)) count + 1 else count }
 }

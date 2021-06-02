@@ -138,6 +138,11 @@ fun runCollections() {
     println(shop.getNumbersOfTimesProductWasOrdered(idea))
     println(shop.getNumbersOfTimesProductWasOrdered(reSharper))
 
+    println(findMostExpensiveProductBy2(customerWith3Orders))
+    println(findMostExpensiveProductBy2(customerWithNoOrders))
+
+    println(shop.getNumbersOfTimesProductWasOrdered2(idea))
+    println(shop.getNumbersOfTimesProductWasOrdered2(reSharper))
 }
 
 fun main(args: Array<String>) {
